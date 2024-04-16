@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-
 function App() {
   const [length, setLength] = useState(8);
   const [numbers, setNumbers] = useState(false);
@@ -27,10 +26,9 @@ function App() {
   }, [length, numbers, character]);
 
   const onCopy = useCallback(() => {
-    passwordRef.current?.select()
-      window.navigator.clipboard.writeText(password)
-    }, [password]);
-  
+    passwordRef.current?.select();
+    window.navigator.clipboard.writeText(password);
+  }, [password]);
 
   useEffect(() => {
     passwordGenerator();
@@ -51,7 +49,6 @@ function App() {
           />
           <button
             onClick={onCopy}
-            
             className="text-xl font-semibold outline-none bg-blue-700 text-white p-2 px-4 shrink-0 rounded-r-xl hover:bg-blue-600"
           >
             Copy
