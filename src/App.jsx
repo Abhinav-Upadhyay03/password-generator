@@ -42,18 +42,41 @@ function App() {
             Copy
           </button>
         </div>
-        <div className="mt-8 flex text-lg gap-2">
+        <div className="mt-8 flex text-lg gap-20">
           <div className="flex gap-2">
-            <input 
-              type="range" 
-              min = {6}
-              max = {33}
+            <input
+              type="range"
+              min={6}
+              max={33}
               value={length}
               className="cursor-pointer"
-              onChange={(e) => {setLength(e.target.value)}}
+              onChange={(e) => {
+                setLength(e.target.value);
+              }}
             />
             <label>Length: {length}</label>
-
+          </div>
+          <div className="flex gap-2">
+            <input
+              type="checkbox"
+              defaultChecked={setNumbers}
+              id="numberInput"
+              onChange={() => {
+                setNumbers((prev) => !prev);
+              }}
+            />
+            <label>Number</label>
+          </div>
+          <div className="flex gap-2">
+            <input
+              type="checkbox"
+              defaultChecked={setCharacter}
+              id="charInput"
+              onChange={() => {
+                setCharacter((prev) => !prev);
+              }}
+            />
+            <label>Character</label>
           </div>
         </div>
       </div>
