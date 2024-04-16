@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-
+import { Toaster, toast } from "sonner";
 function App() {
   const [length, setLength] = useState(8);
   const [numbers, setNumbers] = useState(false);
@@ -26,7 +26,7 @@ function App() {
   }, [length, numbers, character]);
 
   const onCopy = useCallback(() => {
-    passwordRef.current?.select();
+    // passwordRef.current?.select();
     window.navigator.clipboard.writeText(password);
   }, [password]);
 
@@ -48,17 +48,20 @@ function App() {
             ref={passwordRef}
           />
           <button
-            onClick={onCopy}
+            onClick={() => {
+              onCopy;
+              toast.success("Copied");
+            }}
             className="text-xl font-semibold outline-none bg-blue-700 text-white p-2 px-4 shrink-0 rounded-r-xl hover:bg-blue-600"
           >
             Copy
+            <Toaster className="cursor-default select-none pointer-events-none" richColors position="top-center" />
           </button>
         </div>
         <div className="mt-8 flex md:text-base sm:text-sm lg:text-lg justify-between overflow-hidden">
           <div className="flex gap-2">
             <input
               type="range"
-              
               min={6}
               max={33}
               value={length}
