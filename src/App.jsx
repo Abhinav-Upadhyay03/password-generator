@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className="text-center mt-20 m-auto w-7/12 p-16 shadow-xl rounded-3xl text-white text-2xl bg-gray-800">
-      <h1 className="text-6xl font-bold ">Password Generator</h1>
+      <h1 className="lg:text-6xl font-bold ">Password Generator</h1>
       <div className="mt-8">
         <div className="flex mb-4 gap-0">
           <input
@@ -54,14 +54,15 @@ function App() {
             Copy
           </button>
         </div>
-        <div className="mt-8 flex text-lg gap-20">
+        <div className="mt-8 flex md:text-base sm:text-sm lg:text-lg justify-between overflow-hidden">
           <div className="flex gap-2">
             <input
               type="range"
+              
               min={6}
               max={33}
               value={length}
-              className="cursor-pointer"
+              className="cursor-pointer "
               onChange={(e) => {
                 setLength(e.target.value);
               }}
@@ -97,6 +98,9 @@ function App() {
             Regenerate Password
           </button>
         </div>
+      </div>
+      <div className="text-sm fixed flex justify-center inset-x-0 bottom-8 ">
+        Developed by Abhinav
       </div>
     </div>
   );
